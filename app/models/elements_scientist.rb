@@ -1,0 +1,2 @@
+class ElementsScientist < ApplicationRecord
+end
