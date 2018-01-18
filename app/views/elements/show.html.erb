@@ -1,0 +1,33 @@
+<h1>Elements#show</h1>
+<p>Find me in app/views/elements/show.html.erb</p>
+
+<ul>
+<li>Name: <%= @element.name %></li>
+<li>Description: <%= @element.description %></li>
+<li>Protons: <%= @element.protons %></li>
+<li>Electrons: <%= @element.electrons %></li>
+<li>Described Date:<%= @element.described_date %></li>
+</ul>
+
+
+Deposits of <%= @element.name %> can be found at;
+<ul>
+<% @element.deposits.each do |deposit| %>
+  <li><%= link_to deposit.name, deposit %> <%= deposit.quantity%> <%=  deposit.units %></li>
+<% end %>
+</ul>
+
+The following scientists discovered and / or described <%= @element.name %>
+<ul>
+<% @element.scientists.each do |scientist| %>
+  <li><%= link_to scientist.name, scientist %></li>
+<% end %>
+</ul>
+
+
+<div>
+
+  <%= button_to "Edit Element", edit_element_path(@element), :method => 'get' %>
+  <%= button_to 'Delete Element', @element, :method => 'delete', :data => { :confirm => 'Are you sure?'} %>
+
+</div>

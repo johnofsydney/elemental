@@ -1,0 +1,20 @@
+<h1>Deposits#show</h1>
+<p>Find me in app/views/deposits/show.html.erb</p>
+
+
+Detsils for significant deposit of <%= @deposit.element.name %>
+<ul>
+<li><%= @deposit.name %></li>
+<li><%= @deposit.location %></li>
+<li><%= @deposit.quantity %></li>
+<li><%= @deposit.units %></li>
+
+</ul>
+
+
+<div>
+
+  <%= button_to "Edit Deposit", edit_deposit_path(@deposit), :method => 'get' %>
+  <%= button_to 'Delete Deposit', @deposit, :method => 'delete', :data => { :confirm => 'Are you sure?'} %>
+
+</div>

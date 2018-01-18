@@ -1,0 +1,25 @@
+<h1>Scientists#show</h1>
+<p>Find me in app/views/scientists/show.html.erb</p>
+
+<ul>
+<li>Name: <%= @scientist.name %></li>
+<li>Born: <%= @scientist.born %></li>
+<li>Died: <%= @scientist.died %></li>
+<li>Lived: <%= @scientist.city %></li>
+<li><%= @scientist.photo %></li>
+</ul>
+
+<%= @scientist.name %> discovered and / or described the following elements;
+<ul>
+<% @scientist.elements.each do |element| %>
+  <li><%= link_to element.name, element %></li>
+<% end %>
+</ul>
+
+
+<div>
+
+  <%= button_to "Edit Scientist", edit_scientist_path(@scientist), :method => 'get' %>
+  <%= button_to 'Delete Scientist', @scientist, :method => 'delete', :data => { :confirm => 'Are you sure?'} %>
+
+</div>

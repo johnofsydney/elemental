@@ -8,7 +8,6 @@
 #  protons        :integer
 #  electrons      :integer
 #  described_date :date
-#  scientist_id   :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #

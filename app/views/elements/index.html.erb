@@ -1,0 +1,13 @@
+<h1>Elements#index</h1>
+<p>Find me in app/views/elements/index.html.erb</p>
+
+<h1>Elements</h1>
+<ul>
+<% @elements.each do |e| %>
+  <li><%= link_to e.name, e %></li>
+
+<% end %>
+</ul>
+
+
+<%= link_to 'New Element', new_element_path %>

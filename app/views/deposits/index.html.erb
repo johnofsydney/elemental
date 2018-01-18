@@ -1,0 +1,15 @@
+<h1>Deposits#index</h1>
+<p>Find me in app/views/deposits/index.html.erb</p>
+
+
+
+<h1>Deposits</h1>
+<ul>
+<% @deposits.each do |d| %>
+  <li><%= link_to d.name, d %></li>
+
+<% end %>
+</ul>
+
+
+<%= link_to 'New Deposit', new_deposit_path %>
