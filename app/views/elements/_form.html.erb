@@ -28,8 +28,18 @@
   </div>
 
 
+  The following scientists discovered and / or described <%= @element.name %>
+  <ul>
+  <% @element.scientists.each do |scientist| %>
+  <% p = "/elements/#{@element.id}/remove/#{scientist.id}" %>
 
-  <h3>Add kid</h3>
+    <li><%= link_to scientist.name, scientist %>, <%= link_to 'Remove Scientist', p, :method => 'delete', :data => { :confirm => 'Are you sure?'} %></li>
+  <% end %>
+  </ul>
+
+
+
+  <h3>Add Scientist</h3>
   <%= render 'scientist' %>
 
 

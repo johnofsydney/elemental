@@ -39,6 +39,10 @@ class ScientistsController < ApplicationController
     redirect_to scientists_path
   end
 
+
+
+
+
   private
   def scientist_params
     params.require(:scientist).permit(:name, :born, :died, :city, :photo)

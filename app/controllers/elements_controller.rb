@@ -39,6 +39,13 @@ class ElementsController < ApplicationController
     redirect_to elements_path
   end
 
+  def remove_scientist
+    element = Element.find params[:id]
+    element.scientists.delete params[:scientist_id]
+    redirect_to element
+  end
+
+
   private
   def element_params
     params.require(:element).permit(:name, :description, :protons, :electrons, :described_date)

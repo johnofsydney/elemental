@@ -27,6 +27,24 @@
     <%= f.text_field :photo, :class => 'form-control'   %>
   </div>
 
+
+
+  The following elements were discovered and / or described <%= @scientist.name %>
+  <ul>
+  <% @scientist.elements.each do |element| %>
+  <% p = "/elements/#{element.id}/remove/#{@scientist.id}" %>
+
+    <li><%= link_to element.name, element %>, <%= link_to 'Remove Element', p, :method => 'delete', :data => { :confirm => 'Are you sure?'} %></li>
+  <% end %>
+  </ul>
+
+
+
+
+
+
+
+
   <div class="form-group">
     <label></label>
     <%= f.submit :class => 'btn btn-info'  %>
