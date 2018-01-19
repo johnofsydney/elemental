@@ -27,7 +27,7 @@
 #                PUT    /deposits/:id(.:format)                      deposits#update
 #                DELETE /deposits/:id(.:format)                      deposits#destroy
 #                DELETE /elements/:id/remove/:scientist_id(.:format) elements#remove_scientist
-# 
+#
 
 Rails.application.routes.draw do
   root :to => "pages#home"
@@ -36,8 +36,12 @@ Rails.application.routes.draw do
   resources :elements
   resources :deposits
 
-  # get '/scientist/:id/delete_association' => 'scientist#delete_association'
+
   delete '/elements/:id/remove/:scientist_id' => 'elements#remove_scientist'
+
+
+  post 'elements/:id/edit' => 'elements#add_scientist'
+  post 'scientists/:id/edit' => 'scientists#add_element'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

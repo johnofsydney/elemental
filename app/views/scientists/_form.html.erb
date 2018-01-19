@@ -40,17 +40,29 @@
 
 
 
-
-
-
-
-
   <div class="form-group">
     <label></label>
     <%= f.submit :class => 'btn btn-info'  %>
   </div>
 
 
+
+
+<% end %>
+
+
+<h3>Add Element</h3>
+<%= form_tag do %>
+
+<fieldset>
+<%= label_tag :name %>
+<%= select_tag :element_id, options_for_select(Element.pluck(:name, :id)), :include_blank => true %>
+</fieldset>
+
+<div class="form-group">
+<label></label>
+<%= submit_tag :class => 'btn btn-info'  %>
+</div>
 
 
 <% end %>

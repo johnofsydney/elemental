@@ -13,6 +13,6 @@
 #
 
 class Element < ApplicationRecord
-  has_and_belongs_to_many :scientists
+  has_and_belongs_to_many :scientists, -> {distinct}
   has_many :deposits
 end

@@ -45,6 +45,14 @@ class ElementsController < ApplicationController
     redirect_to element
   end
 
+  def add_scientist
+    element = Element.find params[:id]
+    scientist = Scientist.find params[:scientist_id]
+    element.scientists << scientist
+
+    redirect_to element
+  end
+
 
   private
   def element_params

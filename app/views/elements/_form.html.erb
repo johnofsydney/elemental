@@ -33,17 +33,9 @@
   <% @element.scientists.each do |scientist| %>
   <% p = "/elements/#{@element.id}/remove/#{scientist.id}" %>
 
-    <li><%= link_to scientist.name, scientist %>, <%= link_to 'Remove Scientist', p, :method => 'delete', :data => { :confirm => 'Are you sure?'} %></li>
+    <li><%= link_to scientist.name, scientist %>, <%= button_to 'Remove Scientist', p, :method => 'delete', :data => { :confirm => 'Are you sure?'} %></li>
   <% end %>
   </ul>
-
-
-
-  <h3>Add Scientist</h3>
-  <%= render 'scientist' %>
-
-
-
 
 
   <div class="form-group">
@@ -52,6 +44,22 @@
   </div>
 
 
+  <!-- post '/elements/:id/add/:scientist_id' => 'elements#add_scientist' -->
+
+<% end %>
+
+  <h3>Add Scientist</h3>
+<%= form_tag do %>
+
+<fieldset>
+  <%= label_tag :name %>
+  <%= select_tag :scientist_id, options_for_select(Scientist.pluck(:name, :id)), :include_blank => true %>
+</fieldset>
+
+<div class="form-group">
+  <label></label>
+  <%= submit_tag :class => 'btn btn-info'  %>
+</div>
 
 
 <% end %>

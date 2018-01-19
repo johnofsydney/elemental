@@ -1,14 +1,17 @@
 <%= form_for @element, :html => { :multipart => true } do |f| %>
 
 
+<fieldset>
+  <%= f.label :name %>
+  <%= f.select :id, Scientist.pluck(:name, :id), :include_blank => true %>
+</fieldset>
+
+
 
   <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, :class => 'form-control', :required => true   %>
+    <label>2 - works on normal fields</label>
+    <%= f.submit :class => 'btn btn-info'  %>
   </div>
-
-
-
 
 
 <% end %>

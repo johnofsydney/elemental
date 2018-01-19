@@ -41,6 +41,6 @@ class DepositsController < ApplicationController
 
   private
   def deposit_params
-    params.require(:deposit).permit(:name, :location, :quantity, :units)
+    params.require(:deposit).permit(:name, :location, :quantity, :units, :element_id)
   end
 end
