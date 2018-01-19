@@ -9,6 +9,21 @@
   </head>
 
   <body>
+
+  <div id="nav">
+    <ul>
+      <li><%= link_to 'home', root_path %></li>
+      <li><%= link_to 'elements', elements_path %></li>
+      <li><%= link_to 'scientists', scientists_path %></li>
+      <li><%= link_to 'deposits', deposits_path %></li>
+    </ul>
+
+  </div>
+
+
     <%= yield %>
   </body>
 </html>
+
+
+  <!-- <%= link_to 'FM_Booker', root_path, :class => "navbar-brand" %> -->

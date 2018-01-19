@@ -49,7 +49,6 @@ class ElementsController < ApplicationController
     element = Element.find params[:id]
     scientist = Scientist.find params[:scientist_id]
     element.scientists << scientist
-
     redirect_to element
   end
 
