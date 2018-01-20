@@ -168,7 +168,11 @@ const addPlane = () => {
 
 const init = () => {
   renderer.setClearColor( 0xeceff1);
-  renderer.setSize(window.innerWidth, window.innerHeight)
+  renderer.setSize(500, 500)
+  renderer.setSize(window.innerWidth / 2, window.innerHeight / 2)
+  // should be
+  //renderer.setSize(window.innerWidth, window.innerHeight)
+  // having fixed numbers here breasks the aspec ratio
 
   addAxes();
   addPlane();
@@ -184,9 +188,15 @@ const init = () => {
 
   // render the scene
   renderer.render(scene, camera);
-  document.querySelector('#output').appendChild(renderer.domElement)
+  document.querySelector('#rotatingElement').appendChild(renderer.domElement)
+  // $('#rotatingElement').append(renderer.domElement)
   animate();
 };
+
+
+// $(document).ready( function() {
+//   // init()
+// })
 
 
 window.onload = init;
@@ -198,6 +208,7 @@ const onResize = () => {
   // update positions of the shapes
   camera.updateProjectionMatrix();
   // update the size of the render
+  // renderer.setSize(window.innerWidth, window.innerHeight)
   renderer.setSize(window.innerWidth, window.innerHeight)
 
 };
