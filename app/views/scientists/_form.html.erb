@@ -1,7 +1,5 @@
 <%= form_for @scientist, :html => { :multipart => true } do |f| %>
 
-
-
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name, :class => 'form-control', :required => true   %>
@@ -28,27 +26,23 @@
   </div>
 
 
-
-  The following elements were discovered and / or described <%= @scientist.name %>
-  <ul>
-  <% @scientist.elements.each do |element| %>
-  <% p = "/elements/#{element.id}/remove/#{@scientist.id}" %>
-
-    <li><%= link_to element.name, element %>, <%= link_to 'Remove Element', p, :method => 'delete', :data => { :confirm => 'Are you sure?'} %></li>
-  <% end %>
-  </ul>
-
-
-
   <div class="form-group">
     <label></label>
     <%= f.submit :class => 'btn btn-info'  %>
   </div>
 
 
-
-
 <% end %>
+
+The following elements were discovered and / or described ((UPDATED)) <%= @scientist.name %>
+<ul>
+<% @scientist.elements.each do |element| %>
+<% p = "/elements/#{element.id}/remove/#{@scientist.id}" %>
+
+  <li><%= link_to element.name, element %>, <%= button_to 'Remove Element', p, :method => 'delete', :data => { :confirm => 'Are you sure?'} %></li>
+<% end %>
+</ul>
+
 
 
 <h3>Add Element</h3>
