@@ -13,7 +13,8 @@
 ElementsScientist.delete_all
 Scientist.destroy_all
 Element.destroy_all
-Deposit.destroy_all
+# Deposit.destroy_all
+Country.destroy_all
 
 
 
@@ -29,7 +30,13 @@ e3 = Element.create :name => 'Lithium', :electrons => '2,1'
 e4 = Element.create :name => 'Neon', :electrons => '2,8'
 
 # Deposit.destroy_all
-d1 = e3.deposits.create :name => 'Uyuni'
+# d1 = e3.deposits.create :name => 'Uyuni'
+
+c1 = Country.create :name => 'Australia'
+c2 = Country.create :name => 'New Zealand'
+c3 = Country.create :name => 'China'
+c4 = Country.create :name => 'Nauru'
+
 
 s1.elements << e2
 s2.elements << e2

@@ -1,0 +1,2 @@
+class CountriesScientist < ApplicationRecord
+end
