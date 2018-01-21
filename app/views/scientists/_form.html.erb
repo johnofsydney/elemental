@@ -34,7 +34,7 @@
 
 <% end %>
 
-The following elements were discovered and / or described ((UPDATED)) <%= @scientist.name %>
+The following elements were discovered and / or described by <%= @scientist.name %>
 <ul>
 <% @scientist.elements.each do |element| %>
 <% p = "/elements/#{element.id}/remove/#{@scientist.id}" %>

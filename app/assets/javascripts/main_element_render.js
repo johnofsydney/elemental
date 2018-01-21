@@ -9,12 +9,7 @@ let step = 0;
 let controls = null;
 let gui = null;
 let electrons = []
-// let sphere1 = null;
-// let sphere2 = null;
-// let sphere3 = null;
-// let light1 = null;
-// let light2 = null;
-// let light3 = null;
+let shells = []
 
 const renderer = new THREE.WebGLRenderer({
   antialias: true
@@ -54,20 +49,16 @@ const animate = () => {
   cube.rotation.z += controller.rotationSpeed
 
 
-
-
   for (var i = 0; i < electrons.length; i++) {
-    offset = (i / electrons.length) * 2 * Math.PI
-    a = 20 * ((  (2 / electrons.length) * i) - 1)
-    b = 20 * Math.cos((i / electrons.length) * 2 * Math.PI)
-    electrons[i].position.x = (20 * (Math.sin(step + offset )))
-    electrons[i].position.y = (20 * (Math.cos(step + offset )))
-    // electrons[i].position.z = (a * (Math.cos(step + offset )))
+    a = 5 * ( 1 + i ) // amplitude increases per shell
 
-    // electrons[i].position.z = (a * (Math.sin(step + offset )))
-
+    for (var j = 0; j < electrons[i].length; j++) {
+      offset = (j / electrons[i].length) * 2 * Math.PI // spaces electrons evenly throughout circle
+      electrons[i][j].position.x = (a * (Math.sin(step * a/5 + offset )))
+      electrons[i][j].position.y = (-a * (Math.cos(step * a/5 + offset )))
+      electrons[i][j].position.z = (a * (Math.sin(step * a/5 + offset )))
+    }
   }
-
 
 
   // change position of meshes
@@ -119,33 +110,47 @@ const addCube = () => {
   scene.add(cube)
 }
 
-const addSphere = (n) => {
-  console.log(`in addSpehere, adding ${n} spheres`);
+const addSphere = (e) => {
+  eArr = []
+  // console.log( typeof(e) );
+  // console.log(`in addSpehere, adding ${e} spheres`);
+  if ( typeof(e) === 'number' ) {
+    eArr.push(parseInt(e))
+  } else {
+    eArr = e.split(',')
+  }
+
+  console.log(`The array of electrons is ${eArr}. No error trapping for wrong formart`);
 
   const sphereGeometry = new THREE.SphereGeometry(1, 20, 20);
   const sphereMaterial = new THREE.MeshLambertMaterial({
     color: 0x00a3ff
   })
 
+  //
+  temp = []
+  for (var i = 0; i < eArr.length; i++) {
+    n = parseInt(eArr[i])
+    for (var j = 1; j <= n; j++) {
+      // console.log(i, n)
+      sphere = new THREE.Mesh(sphereGeometry, sphereMaterial)
+      sphere.position.x = 0
+      sphere.position.y = 0
+      sphere.position.z = 0
 
-  for (var j = 1; j <= n; j++) {
-    sphere = new THREE.Mesh(sphereGeometry, sphereMaterial)
-    sphere.position.x = 0
-    sphere.position.y = 0
-    sphere.position.z = 0
+      sphere.castShadow = true;
+      sphere.receiveShadow = true;
 
-    sphere.castShadow = true;
-    sphere.receiveShadow = true;
+      scene.add(sphere)
 
+      temp.push(sphere)
+    }
 
-
-    electrons.push(sphere)
+    electrons.push(temp);
+    temp = []
   }
 
-  for (var i = 0; i < electrons.length; i++) {
-    scene.add(electrons[i])
-  }
-  // scene.add(sphere)
+
 }
 
 const addPlane = () => {
@@ -158,7 +163,7 @@ const addPlane = () => {
   });
   const plane = new THREE.Mesh(planeGeometry, planeMaterial);
   plane.rotation.x = -0.5 * Math.PI;
-  plane.position.x = 0;
+  plane.position.x = 20;
   plane.position.y = -20;
   plane.position.z = 0;
 
@@ -168,7 +173,7 @@ const addPlane = () => {
 
 }
 
-const init = (n) => {
+const init = (e) => {
   renderer.setClearColor( 0xeceff1);
   renderer.setSize(500, 500)
   renderer.setSize(window.innerWidth / 2, window.innerHeight / 2)
@@ -179,7 +184,7 @@ const init = (n) => {
   addAxes();
   addPlane();
   addCube();
-  addSphere(n);
+  addSphere(e);
   addPointLight();
 
 
