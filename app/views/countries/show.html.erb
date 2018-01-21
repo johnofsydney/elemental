@@ -1,2 +1,14 @@
 <h1>Countries#show</h1>
 <p>Find me in app/views/countries/show.html.erb</p>
+
+
+<%= @country.name %>
+
+
+
+<div>
+
+  <%= button_to "Edit Country", edit_country_path(@country), :method => 'get' %>
+  <%= button_to 'Delete Country', @country, :method => 'delete', :data => { :confirm => 'Are you sure?'} %>
+
+</div>
