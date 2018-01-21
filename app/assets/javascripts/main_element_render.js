@@ -1,7 +1,7 @@
 console.log("THREE in sandbox");
 console.log(THREE);
 
-let scube = null;
+let cube = null;
 let sphere = null;
 let pointLight = null;
 
@@ -44,9 +44,9 @@ const animate = () => {
 
   // console.log(electrons.length);
   step += controller.bouncingSpeed;
-  scube.rotation.x += controller.rotationSpeed
-  scube.rotation.y += controller.rotationSpeed
-  scube.rotation.z += controller.rotationSpeed
+  cube.rotation.x += controller.rotationSpeed
+  cube.rotation.y += controller.rotationSpeed
+  cube.rotation.z += controller.rotationSpeed
 
 
   for (var i = 0; i < electrons.length; i++) {
@@ -95,19 +95,19 @@ const addCube = () => {
   //3 create mesh (from geometry and material)
   //4 add mesh to scene
   //5 re-render (scene and camera)
-  const scubeMaterial = new THREE.MeshLambertMaterial({
+  const cubeMaterial = new THREE.MeshLambertMaterial({
     color: 0xff0606
     // wireframe: true
   });
-  const scubeGeometry = new THREE.BoxGeometry(4,4,4);
+  const cubeGeometry = new THREE.BoxGeometry(4,4,4);
 
-  scube = new THREE.Mesh(scubeGeometry, scubeMaterial);
-  scube.position.x = 0
-  scube.position.y = 0
-  scube.position.z = 0
+  cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+  cube.position.x = 0
+  cube.position.y = 0
+  cube.position.z = 0
 
-  scube.castShadow = true;
-  scene.add(scube)
+  cube.castShadow = true;
+  scene.add(cube)
 }
 
 const addSphere = (e) => {
