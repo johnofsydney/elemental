@@ -1,7 +1,7 @@
 console.log("THREE in sandbox");
 console.log(THREE);
 
-let cube = null;
+let scube = null;
 let sphere = null;
 let pointLight = null;
 
@@ -44,9 +44,9 @@ const animate = () => {
 
   // console.log(electrons.length);
   step += controller.bouncingSpeed;
-  cube.rotation.x += controller.rotationSpeed
-  cube.rotation.y += controller.rotationSpeed
-  cube.rotation.z += controller.rotationSpeed
+  scube.rotation.x += controller.rotationSpeed
+  scube.rotation.y += controller.rotationSpeed
+  scube.rotation.z += controller.rotationSpeed
 
 
   for (var i = 0; i < electrons.length; i++) {
@@ -95,32 +95,30 @@ const addCube = () => {
   //3 create mesh (from geometry and material)
   //4 add mesh to scene
   //5 re-render (scene and camera)
-  const cubeMaterial = new THREE.MeshLambertMaterial({
+  const scubeMaterial = new THREE.MeshLambertMaterial({
     color: 0xff0606
     // wireframe: true
   });
-  const cubeGeometry = new THREE.BoxGeometry(4,4,4);
+  const scubeGeometry = new THREE.BoxGeometry(4,4,4);
 
-  cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-  cube.position.x = 0
-  cube.position.y = 0
-  cube.position.z = 0
+  scube = new THREE.Mesh(scubeGeometry, scubeMaterial);
+  scube.position.x = 0
+  scube.position.y = 0
+  scube.position.z = 0
 
-  cube.castShadow = true;
-  scene.add(cube)
+  scube.castShadow = true;
+  scene.add(scube)
 }
 
 const addSphere = (e) => {
   eArr = []
-  // console.log( typeof(e) );
-  // console.log(`in addSpehere, adding ${e} spheres`);
   if ( typeof(e) === 'number' ) {
     eArr.push(parseInt(e))
   } else {
     eArr = e.split(',')
   }
 
-  console.log(`The array of electrons is ${eArr}. No error trapping for wrong formart`);
+  console.log(`The array of electrons is ${eArr}. No error trapping for wrong format`);
 
   const sphereGeometry = new THREE.SphereGeometry(1, 20, 20);
   const sphereMaterial = new THREE.MeshLambertMaterial({
