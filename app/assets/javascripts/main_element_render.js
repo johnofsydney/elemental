@@ -180,26 +180,31 @@ const init = () => {
   addSphere(10);
   addPointLight();
 
+
+
+  controls = new THREE.OrbitControls(camera, renderer.domElement);
+  // This is for mouse control over rotation and closeness
+
+  // render the scene
+  renderer.render(scene, camera);
+
+
+
+  document.querySelector('#rotatingElement').appendChild(renderer.domElement)
+  // this is code from Three JS code along. my preference would be to replace this with a JQuery selector,
+  // but I will leave as is for now.
+
   gui = new dat.GUI();
   gui.add(controller, "rotationSpeed", 0, 0.05);
   gui.add(controller, "bouncingSpeed", 0, 0.05);
 
-  controls = new THREE.OrbitControls(camera, renderer.domElement);
 
-  // render the scene
-  renderer.render(scene, camera);
-  document.querySelector('#rotatingElement').appendChild(renderer.domElement)
-  // $('#rotatingElement').append(renderer.domElement)
+
+
   animate();
 };
 
 
-// $(document).ready( function() {
-//   // init()
-// })
-
-
-window.onload = init;
 
 
 const onResize = () => {

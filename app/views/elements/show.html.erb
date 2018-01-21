@@ -5,9 +5,10 @@
 <li>Name: <%= @element.name %></li>
 <li>Description: <%= @element.description %></li>
 <li>Protons: <%= @element.protons %></li>
-<li>Electrons: <%= @element.electrons %></li>
+<li data: {el:@element.electrons }>Electrons: <%= @element.electrons %></li>
 <li>Described Date:<%= @element.described_date %></li>
 </ul>
+
 
 
 Deposits of <%= @element.name %> can be found at;
@@ -37,8 +38,7 @@ The following scientists discovered and / or described <%= @element.name %>
   <div id="rotatingElement"></div>
 
 
-<!-- <script src="js/three.js" charset="utf-8"></script>
-<script src="js/datGui.js" charset="utf-8"></script>
-<script src="js/orbitControls.js" charset="utf-8"></script>
-<script src="js/stats.js" charset="utf-8"></script>
-<script src="js/main.js" charset="utf-8"></script> -->
+  <div>
+    <h3>Page Notes</h3>
+    <p>The #rotatingElement element div exists only the element show page. It is not appended to the other oages.</p>
+  </div>
