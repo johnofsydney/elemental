@@ -23,10 +23,10 @@ s2 = Scientist.create :name => 'Abraham Langlet'
 s3 = Scientist.create :name => 'William Ramsay'
 
 # Element.destroy_all
-e2 = Element.create :name => 'Helium'
-e1 = Element.create :name => 'Hydrogen'
-e3 = Element.create :name => 'Lithium'
-e4 = Element.create :name => 'Neon'
+e2 = Element.create :name => 'Helium', :electrons => '2'
+e1 = Element.create :name => 'Hydrogen', :electrons => '1'
+e3 = Element.create :name => 'Lithium', :electrons => '2,1'
+e4 = Element.create :name => 'Neon', :electrons => '2,8'
 
 # Deposit.destroy_all
 d1 = e3.deposits.create :name => 'Uyuni'

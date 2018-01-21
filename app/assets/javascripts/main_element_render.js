@@ -14,12 +14,11 @@ let shells = []
 const renderer = new THREE.WebGLRenderer({
   antialias: true
 });
-  // );
+
 renderer.shadowMap.enabled = true;
 renderer.setPixelRatio(window.devicePixelRatio || 1);
 
 const scene = new THREE.Scene();
-
 const camera = new THREE.PerspectiveCamera(
   45,
   window.innerWidth / window.innerHeight,
@@ -36,27 +35,29 @@ camera.lookAt(scene.position);
 // It sets "this" to a new empty function
 // It automatically returns the keyword "this" (ie that empty object)
 const controller = new function () {
-  this.rotationSpeed = 0.02;
-  this.bouncingSpeed = 0.02;
+  this.rotationSpeed = 1;
+  // this.bouncingSpeed = 0.02;
 }
 
 const animate = () => {
 
   // console.log(electrons.length);
-  step += controller.bouncingSpeed;
-  cube.rotation.x += controller.rotationSpeed
-  cube.rotation.y += controller.rotationSpeed
-  cube.rotation.z += controller.rotationSpeed
+  increment = controller.rotationSpeed / 100
+  step += increment;
+  cube.rotation.x += increment
+  cube.rotation.y += increment
+  cube.rotation.z += increment
 
 
   for (var i = 0; i < electrons.length; i++) {
     a = 5 * ( 1 + i ) // amplitude increases per shell
+    orth = (i + 1) % 2
 
     for (var j = 0; j < electrons[i].length; j++) {
       offset = (j / electrons[i].length) * 2 * Math.PI // spaces electrons evenly throughout circle
-      electrons[i][j].position.x = (a * (Math.sin(step * a/5 + offset )))
-      electrons[i][j].position.y = (-a * (Math.cos(step * a/5 + offset )))
-      electrons[i][j].position.z = (a * (Math.sin(step * a/5 + offset )))
+      electrons[i][j].position.x = ( a * (Math.sin(step / a * 100 + (offset ) )))
+      electrons[i][j].position.y = ( orth * a * (Math.cos(step /  a* 100 + offset )))
+      electrons[i][j].position.z = ((orth -1 ) * a * (Math.cos(step / a * 100 + offset )))
     }
   }
 
@@ -99,7 +100,7 @@ const addCube = () => {
     color: 0xff0606
     // wireframe: true
   });
-  const cubeGeometry = new THREE.BoxGeometry(4,4,4);
+  const cubeGeometry = new THREE.BoxGeometry(2,2,2);
 
   cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
   cube.position.x = 0
@@ -136,6 +137,7 @@ const addSphere = (e) => {
       sphere.position.y = 0
       sphere.position.z = 0
 
+
       sphere.castShadow = true;
       sphere.receiveShadow = true;
 
@@ -162,7 +164,7 @@ const addPlane = () => {
   const plane = new THREE.Mesh(planeGeometry, planeMaterial);
   plane.rotation.x = -0.5 * Math.PI;
   plane.position.x = 20;
-  plane.position.y = -20;
+  plane.position.y = -30;
   plane.position.z = 0;
 
 
@@ -200,8 +202,8 @@ const init = (e) => {
   // but I will leave as is for now.
 
   gui = new dat.GUI();
-  gui.add(controller, "rotationSpeed", 0, 0.05);
-  gui.add(controller, "bouncingSpeed", 0, 0.05);
+  gui.add(controller, "rotationSpeed", 0, 5);
+  // gui.add(controller, "bouncingSpeed", 0, 0.05);
 
 
 
