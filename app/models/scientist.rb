@@ -14,4 +14,5 @@
 
 class Scientist < ApplicationRecord
   has_and_belongs_to_many :elements, -> {distinct}
+  belongs_to :country
 end

@@ -5,7 +5,11 @@
 <li>Name: <%= @scientist.name %></li>
 <li>Born: <%= @scientist.born %></li>
 <li>Died: <%= @scientist.died %></li>
-<li>Lived: <%= @scientist.city %></li>
+
+<% if  (@scientist.country )%>
+  <li>Lived: <%= @scientist.country.name %></li>
+<% end %>
+
 <li>Photo: <%= @scientist.photo %></li>
 </ul>
 

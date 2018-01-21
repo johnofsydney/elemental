@@ -44,14 +44,17 @@ class ScientistsController < ApplicationController
     scientist = Scientist.find params[:id]
     element = Element.find params[:element_id]
     scientist.elements << element
-
     redirect_to scientist
   end
 
-
+  def remove_element
+    scientist = Scientist.find params[:id]
+    scientist.elements.delete params[:element_id]
+    redirect_to scientist
+  end
 
   private
   def scientist_params
-    params.require(:scientist).permit(:name, :born, :died, :city, :photo)
+    params.require(:scientist).permit(:name, :born, :died, :city, :photo, :country_id)
   end
 end

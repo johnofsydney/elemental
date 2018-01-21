@@ -39,18 +39,37 @@ class ElementsController < ApplicationController
     redirect_to elements_path
   end
 
+
+
   def remove_scientist
     element = Element.find params[:id]
     element.scientists.delete params[:scientist_id]
     redirect_to element
   end
 
-  def add_scientist
+
+  def remove_country
     element = Element.find params[:id]
-    scientist = Scientist.find params[:scientist_id]
-    element.scientists << scientist
+    element.countries.delete params[:country_id]
     redirect_to element
   end
+
+
+
+  def add_child
+    # raise
+    element = Element.find params[:id]
+    if (params[:scientist_id])
+      scientist = Scientist.find params[:scientist_id]
+      element.scientists << scientist
+    elsif (params[:country_id])
+      country = Country.find params[:country_id]
+      element.countries << country
+    end
+    redirect_to element
+  end
+
+
 
 
   private

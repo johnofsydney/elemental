@@ -21,6 +21,14 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :country_id %>
+    <%= f.select :country_id, Country.pluck(:name, :id), :include_blank => true %>
+  </div>
+
+
+
+
+  <div class="form-group">
     <%= f.label :photo %>
     <%= f.text_field :photo, :class => 'form-control'   %>
   </div>
@@ -37,7 +45,7 @@
 The following elements were discovered and / or described by <%= @scientist.name %>
 <ul>
 <% @scientist.elements.each do |element| %>
-<% p = "/elements/#{element.id}/remove/#{@scientist.id}" %>
+<% p = "/scientists/#{@scientist.id}/remove/element/#{element.id}" %>
 
   <li><%= link_to element.name, element %>, <%= button_to 'Remove Element', p, :method => 'delete', :data => { :confirm => 'Are you sure?'} %></li>
 <% end %>

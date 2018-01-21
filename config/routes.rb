@@ -26,22 +26,38 @@
 #                PATCH  /deposits/:id(.:format)                      deposits#update
 #                PUT    /deposits/:id(.:format)                      deposits#update
 #                DELETE /deposits/:id(.:format)                      deposits#destroy
+#      countries GET    /countries(.:format)                         countries#index
+#                POST   /countries(.:format)                         countries#create
+#    new_country GET    /countries/new(.:format)                     countries#new
+#   edit_country GET    /countries/:id/edit(.:format)                countries#edit
+#        country GET    /countries/:id(.:format)                     countries#show
+#                PATCH  /countries/:id(.:format)                     countries#update
+#                PUT    /countries/:id(.:format)                     countries#update
+#                DELETE /countries/:id(.:format)                     countries#destroy
 #                DELETE /elements/:id/remove/:scientist_id(.:format) elements#remove_scientist
+#                POST   /elements/:id/edit(.:format)                 elements#add_scientist
+#                DELETE /elements/:id/remove/:country_id(.:format) elements#remove_country
+#                POST   /elements/:id/edit(.:format)                 elements#add_country
+#                POST   /scientists/:id/edit(.:format)               scientists#add_element
 #
 
 Rails.application.routes.draw do
+
   root :to => "pages#home"
 
+  resources :countries
   resources :scientists
   resources :elements
   resources :deposits
 
+  post 'elements/:id/edit' => 'elements#add_child'
+  delete '/elements/:id/remove/scientist/:scientist_id' => 'elements#remove_scientist'
+  delete '/elements/:id/remove/country/:country_id' => 'elements#remove_country'
 
-  delete '/elements/:id/remove/:scientist_id' => 'elements#remove_scientist'
 
 
-  post 'elements/:id/edit' => 'elements#add_scientist'
   post 'scientists/:id/edit' => 'scientists#add_element'
+  delete '/scientists/:id/remove/element/:element_id' => 'scientists#remove_element'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -6,13 +6,13 @@
 #  name           :text
 #  description    :text
 #  protons        :integer
-#  electrons      :integer
+#  electrons      :text
 #  described_date :date
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
 
 class Element < ApplicationRecord
+  has_and_belongs_to_many :countries, -> {distinct}
   has_and_belongs_to_many :scientists, -> {distinct}
-  has_many :deposits
 end
