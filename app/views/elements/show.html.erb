@@ -5,9 +5,15 @@
 <li>Name: <%= @element.name %></li>
 <li>Description: <%= @element.description %></li>
 <li>Protons: <%= @element.protons %></li>
-<li data: {el:@element.electrons }>Electrons: <%= @element.electrons %></li>
+<li>Electrons: <%= @element.electrons %></li>
 <li>Described Date:<%= @element.described_date %></li>
 </ul>
+
+
+<%= content_tag :div, id: "electrons", data: {electrons: @element.electrons} do %>
+This div is probably not really necesary, I could just as easily get the data from the <li> tag for electrons.
+But I wanted to use the data tag in html to move the data around.
+<% end %>
 
 
 
@@ -41,4 +47,5 @@ The following scientists discovered and / or described <%= @element.name %>
   <div>
     <h3>Page Notes</h3>
     <p>The #rotatingElement element div exists only the element show page. It is not appended to the other oages.</p>
+    <p>Use of data in div tag to pass number of electrons to Three.JS rendering</p>
   </div>

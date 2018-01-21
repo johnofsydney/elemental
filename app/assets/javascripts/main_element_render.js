@@ -58,10 +58,12 @@ const animate = () => {
 
   for (var i = 0; i < electrons.length; i++) {
     offset = (i / electrons.length) * 2 * Math.PI
-    a = 20 * Math.sin(step)
-    b = 20 * Math.cos(step)
+    a = 20 * ((  (2 / electrons.length) * i) - 1)
+    b = 20 * Math.cos((i / electrons.length) * 2 * Math.PI)
     electrons[i].position.x = (20 * (Math.sin(step + offset )))
     electrons[i].position.y = (20 * (Math.cos(step + offset )))
+    // electrons[i].position.z = (a * (Math.cos(step + offset )))
+
     // electrons[i].position.z = (a * (Math.sin(step + offset )))
 
   }
@@ -118,7 +120,7 @@ const addCube = () => {
 }
 
 const addSphere = (n) => {
-  console.log(n);
+  console.log(`in addSpehere, adding ${n} spheres`);
 
   const sphereGeometry = new THREE.SphereGeometry(1, 20, 20);
   const sphereMaterial = new THREE.MeshLambertMaterial({
@@ -166,7 +168,7 @@ const addPlane = () => {
 
 }
 
-const init = () => {
+const init = (n) => {
   renderer.setClearColor( 0xeceff1);
   renderer.setSize(500, 500)
   renderer.setSize(window.innerWidth / 2, window.innerHeight / 2)
@@ -177,7 +179,7 @@ const init = () => {
   addAxes();
   addPlane();
   addCube();
-  addSphere(10);
+  addSphere(n);
   addPointLight();
 
 
