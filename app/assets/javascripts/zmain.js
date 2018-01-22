@@ -21,6 +21,18 @@ $(document).ready( function() {
     doTheGeoChart (r)
   }
 
+
+  if ( $('#bar_chart_div').length ) {
+    // similar for regions_div which is the geoChart container
+    r = $('#bar_chart_div').data('resources')
+    // console.log(r);
+    doTheBarChart (r)
+  }
+
+
+
+
+
 })
 
 

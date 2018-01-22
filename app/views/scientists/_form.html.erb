@@ -1,5 +1,8 @@
 <%= form_for @scientist, :html => { :multipart => true } do |f| %>
 
+
+
+
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name, :class => 'form-control', :required => true   %>
@@ -28,10 +31,20 @@
 
 
 
-  <div class="form-group">
+  <!-- <div class="form-group">
     <%= f.label :photo %>
     <%= f.text_field :photo, :class => 'form-control'   %>
-  </div>
+  </div> -->
+
+
+  <div class="form-group">
+   <%= f.label :photo %><br>
+   <%= f.file_field :photo %>
+ </div>
+
+
+
+
 
 
   <div class="form-group">

@@ -33,3 +33,7 @@ The following scientists lived or worked in <%= @country.name %>
   <%= button_to 'Delete Country', @country, :method => 'delete', :data => { :confirm => 'Are you sure?'} %>
 
 </div>
+
+
+<%= content_tag :div, id: "bar_chart_div", data: {resources: @country.resources.as_json(include: :element)} do %>
+<% end %>
