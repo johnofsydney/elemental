@@ -10,12 +10,13 @@
 
 
 
+# CountriesElement.destroy_all
 ElementsScientist.delete_all
 Scientist.destroy_all
 Element.destroy_all
 # Deposit.destroy_all
 Country.destroy_all
-
+Resource.destroy_all
 
 
 # Scientist.destroy_all
@@ -24,8 +25,8 @@ s2 = Scientist.create :name => 'Abraham Langlet'
 s3 = Scientist.create :name => 'William Ramsay'
 
 # Element.destroy_all
-e2 = Element.create :name => 'Helium', :electrons => '2'
-e1 = Element.create :name => 'Hydrogen', :electrons => '1'
+e1 = Element.create :name => 'Helium', :electrons => '2'
+e2 = Element.create :name => 'Hydrogen', :electrons => '1'
 e3 = Element.create :name => 'Lithium', :electrons => '2,1'
 e4 = Element.create :name => 'Neon', :electrons => '2,8'
 
@@ -36,6 +37,9 @@ c1 = Country.create :name => 'Australia'
 c2 = Country.create :name => 'New Zealand'
 c3 = Country.create :name => 'China'
 c4 = Country.create :name => 'Nauru'
+
+r1 = Resource.create!(quantity: 10, country_id: c1.id, element_id:e1.id )
+r2 = Resource.create!(quantity: 20, country_id: c2.id, element_id:e2.id )
 
 
 s1.elements << e2

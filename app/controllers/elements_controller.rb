@@ -50,7 +50,9 @@ class ElementsController < ApplicationController
 
   def remove_country
     element = Element.find params[:id]
-    element.countries.delete params[:country_id]
+    country = Country.find params[:country_id]
+    # raise
+    Resource.where(country_id: country.id, element_id: element.id).destroy_all
     redirect_to element
   end
 
@@ -64,7 +66,9 @@ class ElementsController < ApplicationController
       element.scientists << scientist
     elsif (params[:country_id])
       country = Country.find params[:country_id]
-      element.countries << country
+      quantity = params[:quantity]
+      # element.countries << country
+      Resource.create!(quantity: quantity, country_id: country.id, element_id: element.id )
     end
     redirect_to element
   end

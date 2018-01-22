@@ -1,8 +1,28 @@
 <h1>Countries#show</h1>
 <p>Find me in app/views/countries/show.html.erb</p>
 
+<h1><%= @country.name %></h1>
 
-<%= @country.name %>
+
+
+
+The following elements can be found in <%= @country.name %>
+<ul>
+<% @country.resources.each do |resource| %>
+  <li><%= link_to resource.element.name, resource.element %>  <%= resource.quantity %></li>
+<% end %>
+</ul>
+
+The following scientists lived or worked in <%= @country.name %>
+<ul>
+<% @country.scientists.each do |scientist| %>
+  <li><%= link_to scientist.name, scientist %></li>
+<% end %>
+</ul>
+
+
+
+CountriesElement
 
 
 

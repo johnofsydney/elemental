@@ -19,8 +19,8 @@ But I wanted to practice using the data tag in html to move the data around. -->
 
 Deposits of <%= @element.name %> can be found at;
 <ul>
-<% @element.countries.each do |country| %>
-  <li><%= link_to country.name %></li>
+<% @element.resources.each do |resource| %>
+  <li><%= link_to resource.country.name, resource.country %> // <%= resource.quantity %></li>
 <% end %>
 </ul>
 

@@ -9,6 +9,6 @@
 #
 
 class Country < ApplicationRecord
-  has_and_belongs_to_many :elements, -> {distinct}
+  has_many :resources
   has_many :scientists
 end

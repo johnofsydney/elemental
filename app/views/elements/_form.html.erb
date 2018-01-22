@@ -47,11 +47,11 @@ The following scientists discovered and / or described <%= @element.name %>
 
 The following countries have significant deposits of <%= @element.name %>
 <ul>
-<% @element.countries.each do |country| %>
-<% p = "/elements/#{@element.id}/remove/country/#{country.id}" %>
+<% @element.resources.each do |resource| %>
+<% p = "/elements/#{@element.id}/remove/country/#{resource.country.id}" %>
 
 
-  <li><%= link_to country.name, country %>, <%= button_to 'Remove Country', p, :method => 'delete', :data => { :confirm => 'Are you sure?'} %></li>
+  <li><%= link_to resource.country.name, resource.country %>, <%= button_to 'Remove Country', p, :method => 'delete', :data => { :confirm => 'Are you sure?'} %></li>
 <% end %>
 </ul>
 
@@ -66,9 +66,17 @@ The following countries have significant deposits of <%= @element.name %>
   <%= select_tag :country_id, options_for_select(Country.pluck(:name, :id)), :include_blank => true %>
   </fieldset>
 
+  <fieldset>
+    <%= label_tag :quantity %>
+    <%= text_field_tag :quantity   %>
+  </fieldset>
+
+
+
+
   <div class="form-group">
   <label></label>
-  <%= submit_tag :class => 'btn btn-info'  %>
+  <%= submit_tag nil, :class => 'btn btn-info'  %>
   </div>
 
 <% end %>
