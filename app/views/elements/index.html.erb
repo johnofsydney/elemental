@@ -2,12 +2,24 @@
 <p>Find me in app/views/elements/index.html.erb</p>
 
 <h1>Elements</h1>
-<ul>
+
 <% @elements.each do |e| %>
-  <li><%= link_to e.name, e %></li>
+
+  <%= content_tag :div, class: "box row-" + e.position.split(',')[0] + " col-"  + e.position.split(',')[1] + " " + e.family do %>
+    <%= e.symbol %>
+    <%= link_to e.name, e %>
+  <% end %>
+
 
 <% end %>
-</ul>
+
+
+
+
+
+
+
+
 
 
 <%= link_to 'New Element', new_element_path %>

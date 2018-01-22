@@ -39,7 +39,7 @@
 #                DELETE /elements/:id/remove/country/:country_id(.:format)     elements#remove_country
 #                POST   /scientists/:id/edit(.:format)                         scientists#add_element
 #                DELETE /scientists/:id/remove/element/:element_id(.:format)   scientists#remove_element
-# 
+#
 
 Rails.application.routes.draw do
 
@@ -58,6 +58,8 @@ Rails.application.routes.draw do
 
   post 'scientists/:id/edit' => 'scientists#add_element'
   delete '/scientists/:id/remove/element/:element_id' => 'scientists#remove_element'
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

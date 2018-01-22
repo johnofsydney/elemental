@@ -26,7 +26,7 @@ s3 = Scientist.create :name => 'William Ramsay'
 
 # Element.destroy_all
 e1 = Element.create :name => 'Helium', :symbol => 'He', :position => '1,18', :electrons => '2', :family => 'noble'
-e2 = Element.create :name => 'Hydrogen', :symbol => 'H', :position => '1,1', :electrons => '1'
+e2 = Element.create :name => 'Hydrogen', :symbol => 'H', :position => '1,1', :electrons => '1', :family => 'diatomic-non-metal'
 e3 = Element.create :name => 'Lithium', :symbol => 'Li', :position => '2,1', :electrons => '2,1', :family => 'alkali-metal'
 e4 = Element.create :name => 'Neon', :symbol => 'Ne', :position => '2,18', :electrons => '2,8', :family => 'noble'
 e5 = Element.create :name => 'Beryllium', :symbol => 'Be', :position => '2,2', :electrons => '', :family => 'alkali-earth'
@@ -293,6 +293,7 @@ c186 = Country.create :name => 'United Arab Emirates'
 c187 = Country.create :name => 'United Kingdom'
 c188 = Country.create :name => 'Uruguay'
 c189 = Country.create :name => 'Uzbekistan'
+c196 = Country.create :name => 'United States of America'
 
 c190 = Country.create :name => 'Vanuatu'
 c191 = Country.create :name => 'Venezuela'
@@ -308,8 +309,26 @@ c195 = Country.create :name => 'Zimbabwe'
 
 
 
-r1 = Resource.create!(quantity: 10, country_id: c1.id, element_id:e1.id )
-r2 = Resource.create!(quantity: 20, country_id: c2.id, element_id:e2.id )
+r1 = Resource.create!(quantity: 6900000, country_id: c9.id, element_id:e1.id )
+r2 = Resource.create!(quantity: 350000000, country_id: c196.id, element_id:e1.id )
+r3 = Resource.create!(quantity: 300000000, country_id: c3.id, element_id:e1.id )
+r4 = Resource.create!(quantity: 72000000, country_id: c32.id, element_id:e1.id )
+r5 = Resource.create!(quantity: 250000000, country_id: c145.id, element_id:e1.id )
+
+r6 = Resource.create!(quantity: 7500000, country_id: c36.id, element_id:e3.id )
+r7 = Resource.create!(quantity: 3200000, country_id: c37.id, element_id:e3.id )
+r8 = Resource.create!(quantity: 2000000, country_id: c6.id, element_id:e3.id )
+r9 = Resource.create!(quantity: 1600000, country_id: c9.id, element_id:e3.id )
+
+r10 = Resource.create!(quantity: 4096000, country_id: c37.id, element_id:e50.id )
+r11 = Resource.create!(quantity: 833000, country_id: c79.id, element_id:e50.id )
+r12 = Resource.create!(quantity: 463000, country_id: c88.id, element_id:e50.id )
+r13 = Resource.create!(quantity: 712000, country_id: c24.id, element_id:e50.id )
+r14 = Resource.create!(quantity: 384000, country_id: c21.id, element_id:e50.id )
+r15 = Resource.create!(quantity: 479000, country_id: c65.id, element_id:e50.id )
+r16 = Resource.create!(quantity: 1350000, country_id: c145.id, element_id:e50.id )
+r17 = Resource.create!(quantity: 900000, country_id: c9.id, element_id:e50.id )
+
 
 
 s1.elements << e2

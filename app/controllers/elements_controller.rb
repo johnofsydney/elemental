@@ -16,7 +16,7 @@ class ElementsController < ApplicationController
     @element = Element.find_by :id => params[:id]
     require 'open-uri'
     @base_url = 'https://en.wikipedia.org/wiki/'
-    @wiki_para = Nokogiri::HTML(open(@base_url+@element.name)).css('.mw-parser-output p')[0]
+    @wiki_para = Nokogiri::HTML(open( @base_url + @element.name )).css('.mw-parser-output p')[0]
   end
 
 

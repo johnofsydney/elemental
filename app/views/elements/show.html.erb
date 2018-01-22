@@ -11,7 +11,9 @@
 
 
 <div id="noko">
-  <%= @wiki_para.content %> <%= link_to "More at wikipedia", "http://en.wikipedia.com/wiki/"+@element.name %>
+  <% if @wiki_para %>
+    <%= @wiki_para.content %> <%= link_to "More at wikipedia", "http://en.wikipedia.com/wiki/"+@element.name %>
+  <% end %>
 </div>
 
 

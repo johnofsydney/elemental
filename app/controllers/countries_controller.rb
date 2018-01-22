@@ -13,6 +13,14 @@ class CountriesController < ApplicationController
 
   def show
     @country = Country.find_by :id => params[:id]
+    require 'open-uri'
+    @base_url = 'https://en.wikipedia.org/wiki/'
+    @wiki_para = Nokogiri::HTML(open( @base_url + @country.name )).css('.mw-parser-output p')[0]
+
+    if @wiki_para.include? "oordinates"
+      @wiki_para = Nokogiri::HTML(open( @base_url + @country.name )).css('.mw-parser-output p')[1]
+    end
+    
   end
 
   def create
