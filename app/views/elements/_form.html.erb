@@ -11,8 +11,8 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :protons %>
-    <%= f.text_field :protons, :class => 'form-control'   %>
+    <%= f.label :position %>
+    <%= f.text_field :position, :class => 'form-control'   %>
   </div>
 
   <div class="form-group">
@@ -21,8 +21,8 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :described_date %>
-    <%= f.text_field :described_date, :class => 'form-control'   %>
+    <%= f.label :year %>
+    <%= f.text_field :year, :class => 'form-control'   %>
   </div>
 
   <div class="form-group">
@@ -71,9 +71,6 @@ The following countries have significant deposits of <%= @element.name %>
     <%= text_field_tag :quantity   %>
   </fieldset>
 
-
-
-
   <div class="form-group">
   <label></label>
   <%= submit_tag nil, :class => 'btn btn-info'  %>
@@ -95,7 +92,7 @@ The following countries have significant deposits of <%= @element.name %>
 
   <div class="form-group">
     <label></label>
-    <%= submit_tag :class => 'btn btn-info'  %>
+    <%= submit_tag nil, :class => 'btn btn-info'  %>
   </div>
 
 <% end %>

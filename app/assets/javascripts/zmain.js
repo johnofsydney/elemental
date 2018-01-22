@@ -10,13 +10,13 @@ $(document).ready( function() {
     // on other poages, it doesnt exist, it's null and therefore has no length.
     console.log("element show page... rendering three.js element");
 
-    n = $('#electrons').data('electrons')
+    n = $('#rotatingElement').data('electrons')
     init(n);
   }
 
   if ( $('#regions_div').length ) {
     // similar for regions_div which is the geoChart container
-    r = $('#chart').data('resources')
+    r = $('#regions_div').data('resources')
     // console.log(r);
     doTheGeoChart (r)
   }

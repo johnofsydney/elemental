@@ -1,6 +1,7 @@
 class ElementsController < ApplicationController
   def index
     @elements = Element.all
+
   end
 
   def new
@@ -13,6 +14,9 @@ class ElementsController < ApplicationController
 
   def show
     @element = Element.find_by :id => params[:id]
+    require 'open-uri'
+    @base_url = 'https://en.wikipedia.org/wiki/'
+    @wiki_para = Nokogiri::HTML(open(@base_url+@element.name)).css('.mw-parser-output p')[0]
   end
 
 
@@ -78,6 +82,6 @@ class ElementsController < ApplicationController
 
   private
   def element_params
-    params.require(:element).permit(:name, :description, :protons, :electrons, :described_date)
+    params.require(:element).permit(:name, :description, :protons, :electrons, :described_date, :year)
   end
 end

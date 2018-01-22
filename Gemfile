@@ -32,6 +32,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'nokogiri', '~> 1.6', '>= 1.6.7.2'
+gem 'rest-open-uri', '~> 1.0'
+
+
 
 gem 'rails_12factor', group: :production
 
