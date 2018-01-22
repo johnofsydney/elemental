@@ -33,7 +33,7 @@ gem 'jquery-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'nokogiri', '~> 1.6', '>= 1.6.7.2'
-gem 'rest-open-uri', '~> 1.0'
+
 
 
 
