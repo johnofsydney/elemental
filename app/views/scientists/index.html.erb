@@ -1,12 +1,15 @@
-<h1>Scientists#index</h1>
-<p>Find me in app/views/scientists/index.html.erb</p>
-
 <h1>Scientists</h1>
-<ul>
-<% @scientists.each do |s| %>
-  <li><%= link_to s.name, s %></li>
 
-<% end %>
-</ul>
+<div class="small-wrapper">
 
-<%= link_to 'New Scientist', new_scientist_path %>
+  <% @scientists.each do |s| %>
+    <div class="image_div">
+      <%= link_to image_tag(s.photo, :class => 'thumb'), s %> <br/>
+      <%= link_to s.name, s %>
+    </div>
+
+
+  <% end %>
+
+
+</div>

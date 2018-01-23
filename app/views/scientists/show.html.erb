@@ -1,16 +1,20 @@
-<h1>Scientists#show</h1>
-<p>Find me in app/views/scientists/show.html.erb</p>
-
-<ul>
-<li>Name: <%= @scientist.name %></li>
+<h1><%= @scientist.name %></h1>
 
 
-<% if  (@scientist.country )%>
-  <li>Lived: <%= @scientist.country.name %></li>
-<% end %>
+<div class="content">
 
-
-</ul>
+  <% if  (@scientist.country )%>
+    Lived and worked in <%= link_to @scientist.country.name, @scientist.country %>
+  <% end %>
+  <% if (@scientist.elements.length) %>
+    <p>Discovered or described the following elements;</p>
+    <ul>
+    <% @scientist.elements.each do |element| %>
+      <li><%= link_to element.name, element %></li>
+    <% end %>
+    </ul>
+  <% end %>
+</div>
 
 
 <% if @scientist.photo.nil? %>
@@ -23,19 +27,9 @@
 
 
 
-
-
-<%= @scientist.name %> discovered and / or described the following elements;
-<ul>
-<% @scientist.elements.each do |element| %>
-  <li><%= link_to element.name, element %></li>
-<% end %>
-</ul>
-
-
 <div>
 
-  <%= button_to "Edit Scientist", edit_scientist_path(@scientist), :method => 'get' %>
-  <%= button_to 'Delete Scientist', @scientist, :method => 'delete', :data => { :confirm => 'Are you sure?'} %>
+  <%= button_to "Edit Scientist", edit_scientist_path(@scientist), :method => 'get', :class => "btn btn-primary", form: {style: 'display:inline-block;'} %>
+  <%= button_to 'Delete Scientist', @scientist, :method => 'delete', :class => "btn btn-danger", :data => { :confirm => 'Are you sure?'}, form: {style: 'display:inline-block;'} %>
 
 </div>

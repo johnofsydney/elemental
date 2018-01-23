@@ -175,7 +175,7 @@ const addPlane = () => {
 
 const init = (e) => {
   renderer.setClearColor( 0xeceff1);
-  renderer.setSize(500, 500)
+  // renderer.setSize(500, 500)
   renderer.setSize(window.innerWidth / 2, window.innerHeight / 2)
   // should be
   //renderer.setSize(window.innerWidth, window.innerHeight)

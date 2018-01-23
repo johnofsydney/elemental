@@ -11,17 +11,73 @@
 
   <body>
 
-  <div id="nav">
-    <ul>
-      <li><%= link_to 'home', root_path %></li>
-      <li><%= link_to 'elements', elements_path %></li>
-      <li><%= link_to 'scientists', scientists_path %></li>
-      <li><%= link_to 'countries', countries_path %></li>
-    </ul>
 
-  </div>
 
-<div>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        </button>
+        <%= link_to 'ELEMENTAL', root_path, :class => "navbar-brand" %>
+      </div>
+
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Elements<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li id="toggle_allocated"><%= link_to 'Show All', elements_path %></li>
+            <li role="separator" class="divider"></li>
+            <li id="toggle_closed"><%= link_to 'Add New', new_element_path %></li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Scientists<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li id="toggle_allocated"><%= link_to 'Show All', scientists_path %></li>
+            <li role="separator" class="divider"></li>
+            <li id="toggle_closed"><%= link_to 'Add New', new_scientist_path %></li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Countries<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li id="toggle_allocated"><%= link_to 'Show All', countries_path %></li>
+            <li role="separator" class="divider"></li>
+            <li id="toggle_closed"><%= link_to 'Add New', new_country_path %></li>
+          </ul>
+        </li>
+      </ul>
+
+
+
+
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+
+
+<!-- <header>
+  <ul>
+    <li><%= link_to 'home', root_path %></li>
+    <li><%= link_to 'elements', elements_path %></li>
+    <li><%= link_to 'scientists', scientists_path %></li>
+    <li><%= link_to 'countries', countries_path %></li>
+  </ul>
+
+</header> -->
+
+
+
+<div class="container">
   <%= yield %>
 </div>
 

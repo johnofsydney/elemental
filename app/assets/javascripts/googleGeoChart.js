@@ -17,7 +17,7 @@ const doTheGeoChart = function (r) {
    'packages':['geochart'],
    // Note: you will need to get a mapsApiKey for your project.
    // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-   'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+   'mapsApiKey': 'AIzaSyB7nJABK2HEiQKo4V-FCEMWX5xag8vVJeA'
   });
   google.charts.setOnLoadCallback(drawRegionsMap);
 

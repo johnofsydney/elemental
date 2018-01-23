@@ -1,16 +1,10 @@
-<h1>Elements#show</h1>
-<p>Find me in app/views/elements/show.html.erb</p>
-
-<ul>
-<li>Name: <%= @element.name %></li>
-<li>Symbol: <%= @element.symbol %></li>
-<li>Electrons: <%= @element.electrons %></li>
-<li>Year Discovered / Described:<%= @element.year %></li>
-
-</ul>
+<h1><%= @element.name %> : <%= @element.symbol %></h1>
 
 
-<div id="noko">
+
+
+
+<div  class="content" id="noko">
   <% if @wiki_para %>
     <%= @wiki_para.content %> <%= link_to "More at wikipedia", "http://en.wikipedia.com/wiki/"+@element.name %>
   <% end %>
@@ -18,28 +12,39 @@
 
 
 
-<div>
-Deposits of <%= @element.name %> can be found at;
-<ul>
-<% @element.resources.each do |resource| %>
-  <li><%= link_to resource.country.name, resource.country %>: <%= number_to_human(resource.quantity, options = {}) %> tonnes</li>
-<% end %>
-</ul>
+<div class="content">
+  Deposits of <%= @element.name %> can be found at;
+  <ul>
+  <% @element.resources.each do |resource| %>
+    <li><%= link_to resource.country.name, resource.country %>: <%= number_to_human(resource.quantity, options = {}) %> tonnes</li>
+  <% end %>
+  </ul>
+</div>
 
-The following scientists discovered and / or described <%= @element.name %>
-<ul>
-<% @element.scientists.each do |scientist| %>
-  <li><%= link_to scientist.name, scientist %></li>
-<% end %>
-</ul>
+<div class="content">
+  The following scientists discovered and / or described <%= @element.name %> on or around <%= @element.year %>
+  <ul>
+  <% @element.scientists.each do |scientist| %>
+    <li><%= link_to scientist.name, scientist %></li>
+  <% end %>
+  </ul>
 </div>
 
 
 
 <div>
-  <%= button_to "Edit Element", edit_element_path(@element), :method => 'get' %>
-  <%= button_to 'Delete Element', @element, :method => 'delete', :data => { :confirm => 'Are you sure?'} %>
+  <%= button_to "Edit Element", edit_element_path(@element), :method => 'get', :class => "btn btn-primary", form: {style: 'display:inline-block;'} %>
+  <%= button_to 'Delete Element', @element, :method => 'delete', :class => "btn btn-danger", :data => { :confirm => 'Are you sure?'}, form: {style: 'display:inline-block;'} %>
 </div>
+
+
+
+
+
+
+
+
+
 
 
 <%= content_tag :div, id: "rotatingElement", data: {electrons: @element.electrons} do %>
@@ -47,19 +52,7 @@ The following scientists discovered and / or described <%= @element.name %>
 But I wanted to practice using the data tag in html to move the data around. -->
 <% end %>
 
-<%= content_tag :div, id: "regions_div", data: {resources: @element.resources.as_json(include: :country)} do %>
+<br />
+
+<%= content_tag :div, id: "regions_div", style: "width: 950px; height: 500px", data: {resources: @element.resources.as_json(include: :country)} do %>
 <% end %>
-
-
-
-
-  <div id="xrotatingElement"></div>
-
-  <div id="xregions_div" style="width: 900px; height: 500px;"></div>
-
-
-  <div>
-    <h3>Page Notes</h3>
-    <p>The #rotatingElement element div exists only the element show page. It is not appended to the other oages.</p>
-    <p>Use of data in div tag to pass number of electrons to Three.JS rendering</p>
-  </div>
