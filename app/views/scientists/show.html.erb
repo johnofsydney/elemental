@@ -3,22 +3,21 @@
 
 <ul>
 <li>Name: <%= @scientist.name %></li>
-<li>Born: <%= @scientist.born %></li>
-<li>Died: <%= @scientist.died %></li>
+
 
 <% if  (@scientist.country )%>
   <li>Lived: <%= @scientist.country.name %></li>
 <% end %>
 
-<li>Photo: <%= @scientist.photo %></li>
+
 </ul>
 
 
 <% if @scientist.photo.nil? %>
 <% else %>
-<div class=" mt-1em ">
-  <%= image_tag(@scientist.photo, :class => 'img-rounded photo') unless @scientist.photo.nil? %>
-</div>
+  <div class=" mt-1em ">
+    <%= image_tag(@scientist.photo, :class => 'img-rounded photo') unless @scientist.photo.nil? %>
+  </div>
 <% end %>
 
 

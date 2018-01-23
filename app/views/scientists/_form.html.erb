@@ -8,7 +8,7 @@
     <%= f.text_field :name, :class => 'form-control', :required => true   %>
   </div>
 
-  <div class="form-group">
+  <!-- <div class="form-group">
     <%= f.label :born %>
     <%= f.text_field :born, :class => 'form-control'   %>
   </div>
@@ -21,7 +21,7 @@
   <div class="form-group">
     <%= f.label :city %>
     <%= f.text_field :city, :class => 'form-control'   %>
-  </div>
+  </div> -->
 
   <div class="form-group">
     <%= f.label :country_id %>
@@ -76,7 +76,7 @@ The following elements were discovered and / or described by <%= @scientist.name
 
 <div class="form-group">
 <label></label>
-<%= submit_tag :class => 'btn btn-info'  %>
+<%= submit_tag nil, :class => 'btn btn-info'  %>
 </div>
 
 
