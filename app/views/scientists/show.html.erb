@@ -20,7 +20,7 @@
 <% if @scientist.photo.nil? %>
 <% else %>
   <div class=" mt-1em ">
-    <%= image_tag(@scientist.photo, :class => 'img-rounded photo') unless @scientist.photo.nil? %>
+    <%= image_tag(@scientist.photo, :class => 'img-rounded photo', :secure => true ) unless @scientist.photo.nil? %>
   </div>
 <% end %>
 
