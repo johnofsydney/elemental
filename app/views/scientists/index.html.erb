@@ -4,6 +4,7 @@
 
   <% @scientists.each do |s| %>
     <div class="image_div">
+      <%= image_tag(s.photo, :class => 'thumb', :secure => true ) unless s.photo.nil? %>
     <%= link_to s.name, s %>
     </div>
 
