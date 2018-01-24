@@ -4,7 +4,7 @@ const doTheTimeline = function (e) {
   console.log(e);
 
   f1 = _.filter(e, function(i){
-    return (typeof i.year === 'number' )
+    return (typeof i.year === 'number' && i.year > 1000 )
   })
 
 
@@ -55,7 +55,7 @@ const doTheTimeline = function (e) {
             title: 'Timeline of Elements discovery / description'},
           axes: {
             x: {
-              
+
             }
           },
           bar: { groupWidth: "50%" }
