@@ -2,6 +2,17 @@
 // purpose of this file is to use document.ready to check what page we're on in order to start relevant functions
 
 
+
+
+
+
+
+
+
+
+
+
+
 $(document).ready( function() {
   console.log("jquery ready");
   if ( $('#rotatingElement').length ) {
@@ -30,10 +41,26 @@ $(document).ready( function() {
   }
 
 
+  if ( $('#discovery_timeline').length ) {
+    // similar for regions_div which is the geoChart container
+    r = $('#discovery_timeline').data('elements')
+    // console.log(r);
+    doTheTimeline (r)
+  }
 
+
+
+
+
+
+  particlesJS.load('particles-js', '/particles.json', function (){
+    console.log("file loaded")
+  })
 
 
 })
 
 
 // https://stackoverflow.com/questions/18162197/rails-pass-data-to-javascript
+
+// doTheTimeline

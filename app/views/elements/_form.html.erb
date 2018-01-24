@@ -7,7 +7,7 @@
 
   <div class="form-group">
     <%= f.label :family %>
-    <%= f.text_field :description, :class => 'form-control', :required => true   %>
+    <%= f.text_field :family, :class => 'form-control', :required => true   %>
   </div>
 
   <div class="form-group">
@@ -40,7 +40,7 @@ The following scientists discovered and / or described <%= @element.name %>
 <% p = "/elements/#{@element.id}/remove/scientist/#{scientist.id}" %>
 
 
-  <li><%= link_to scientist.name, scientist %>, <%= button_to 'Remove Scientist', p, :method => 'delete', :data => { :confirm => 'Are you sure?'} %></li>
+  <li><%= link_to scientist.name, scientist %> <%= button_to 'x', p, :method => 'delete', :data => { :confirm => 'Are you sure?'} %></li>
 <% end %>
 </ul>
 
@@ -51,11 +51,10 @@ The following countries have significant deposits of <%= @element.name %>
 <% p = "/elements/#{@element.id}/remove/country/#{resource.country.id}" %>
 
 
-  <li><%= link_to resource.country.name, resource.country %>, <%= button_to 'Remove Country', p, :method => 'delete', :data => { :confirm => 'Are you sure?'} %></li>
+  <li><%= link_to resource.country.name, resource.country %> <%= button_to 'x', p, :method => 'delete', form: {style: 'display:inline-block;'}, :data => { :confirm => 'Are you sure?'} %></li>
 <% end %>
 </ul>
 
-<!--  -->
 
 
 <h3>Add Country</h3>

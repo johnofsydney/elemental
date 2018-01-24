@@ -1,42 +1,46 @@
-<h1><%= @country.name %></h1>
+<div id="" class="overlay">
 
-<div class="content" id="noko">
-  <% if @wiki_para %>
-    <%= @wiki_para.content %> <%= link_to "More at wikipedia", "http://en.wikipedia.com/wiki/" + @country.name %>
+  <h1><%= @country.name %></h1>
+
+  <div class="content" id="noko">
+    <% if @wiki_para %>
+      <%= @wiki_para.content %> <%= link_to "More at wikipedia", "http://en.wikipedia.com/wiki/" + @country.name %>
+    <% end %>
+  </div>
+
+  <div class="content">
+    The following elements can be found in <%= @country.name %>
+    <ul>
+    <% @country.resources.each do |resource| %>
+      <li><%= link_to resource.element.name, resource.element %>  <%= number_to_human(resource.quantity, options = {}) %> tonnes</li>
+    <% end %>
+    </ul>
+  </div>
+
+  <div class="content">
+    The following scientists lived or worked in <%= @country.name %>
+    <ul>
+    <% @country.scientists.each do |scientist| %>
+      <li><%= link_to scientist.name, scientist %></li>
+    <% end %>
+    </ul>
+  </div>
+
+
+
+
+
+
+
+  <div>
+
+    <%= button_to "Edit Country", edit_country_path(@country), :method => 'get', :class => "btn btn-primary", form: {style: 'display:inline-block;'} %>
+    <%= button_to 'Delete Country', @country, :method => 'delete', :class => "btn btn-danger", :data => { :confirm => 'Are you sure?'}, form: {style: 'display:inline-block;'} %>
+
+  </div>
+
+
+  <%= content_tag :div, id: "bar_chart_div",  style: "width: 950px; height: 400px", data: {resources: @country.resources.as_json(include: :element)} do %>
   <% end %>
-</div>
-
-<div class="content">
-  The following elements can be found in <%= @country.name %>
-  <ul>
-  <% @country.resources.each do |resource| %>
-    <li><%= link_to resource.element.name, resource.element %>  <%= number_to_human(resource.quantity, options = {}) %> tonnes</li>
-  <% end %>
-  </ul>
-</div>
-
-<div class="content">
-  The following scientists lived or worked in <%= @country.name %>
-  <ul>
-  <% @country.scientists.each do |scientist| %>
-    <li><%= link_to scientist.name, scientist %></li>
-  <% end %>
-  </ul>
-</div>
-
-
-
-
-
-
-
-<div>
-
-  <%= button_to "Edit Country", edit_country_path(@country), :method => 'get', :class => "btn btn-primary", form: {style: 'display:inline-block;'} %>
-  <%= button_to 'Delete Country', @country, :method => 'delete', :class => "btn btn-danger", :data => { :confirm => 'Are you sure?'}, form: {style: 'display:inline-block;'} %>
 
 </div>
-
-
-<%= content_tag :div, id: "bar_chart_div",  style: "width: 950px; height: 400px", data: {resources: @country.resources.as_json(include: :element)} do %>
-<% end %>

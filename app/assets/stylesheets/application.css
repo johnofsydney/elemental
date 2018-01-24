@@ -22,8 +22,44 @@ body {
 div {
   /* border: red solid 2px; */
 }
+#p-table {
+  background-color: white;
+}
 
 
+.navbar {
+  margin-bottom: 0;
+}
+
+.img-rounded {
+  margin-bottom: 1em;
+}
+
+#particles-js {
+  background-color: #FFFFFF;
+  height: 100vh;
+}
+
+.overlay {
+  /* background-color: white;; */
+  opacity: 1;
+  position: absolute;
+  /* color: white; */
+}
+
+#scientist-index {
+  top: 150px;
+}
+
+
+.has-grid {
+  width: 60%;
+}
+
+/* .overlay h1 {
+  color: black;
+  opacity: 1;
+} */
 .container {
   /* background-color: yellow; */
   padding: 0;

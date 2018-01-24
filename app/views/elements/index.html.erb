@@ -1,19 +1,25 @@
+<div id="p-table">
+
+  <h1>Elements</h1>
+
+  <div class="wrapper">
 
 
+    <% @elements.each do |e| %>
+
+      <%= content_tag :div, class: "row-" + e.position.split(',')[0] + " col-"  + e.position.split(',')[1] + " " + e.family do %>
+        <h2><%= e.symbol %></h2>
+        <p><%= link_to e.name, e %></p>
+      <% end %>
 
 
-<h1>Elements</h1>
-
-<div class="wrapper">
-
-
-  <% @elements.each do |e| %>
-
-    <%= content_tag :div, class: "row-" + e.position.split(',')[0] + " col-"  + e.position.split(',')[1] + " " + e.family do %>
-      <h2><%= e.symbol %></h2>
-      <p><%= link_to e.name, e %></p>
     <% end %>
+  </div>
 
 
+
+
+  <%= content_tag :div, id: "discovery_timeline",  style: "width: 950px; height: 400px", data: {elements: @elements} do %>
   <% end %>
+
 </div>
