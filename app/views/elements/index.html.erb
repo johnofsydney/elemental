@@ -19,7 +19,10 @@
 
 
 
-  <%= content_tag :div, id: "discovery_timeline",  style: "width: 950px; height: 400px", data: {elements: @elements} do %>
-  <% end %>
+
 
 </div>
+
+
+<%= content_tag :div, id: "discovery_timeline",  class: "chart", style: "width: 950px; height: 400px; margin-top: 5em", data: {elements: @elements} do %>
+<% end %>

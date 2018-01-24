@@ -54,5 +54,5 @@ But I wanted to practice using the data tag in html to move the data around. -->
 
 <br />
 
-<%= content_tag :div, id: "regions_div", style: "width: 950px; height: 500px", data: {resources: @element.resources.as_json(include: :country)} do %>
+<%= content_tag :div, id: "regions_div", class: "chart", style: "width: 950px; height: 500px; margin-top: 5em", data: {resources: @element.resources.as_json(include: :country)} do %>
 <% end %>

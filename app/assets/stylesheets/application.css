@@ -23,6 +23,10 @@ div {
   /* border: red solid 2px; */
 }
 
+.chart {
+  margin-top: 2em;
+}
+
 #intro {
   background-color: rgba(0, 195, 255, 0.4);
   border-radius: 1em;

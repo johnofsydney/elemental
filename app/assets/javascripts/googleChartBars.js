@@ -34,7 +34,7 @@ const doTheBarChart = function (r) {
           // 0: { side: 'top', label: 'White to move'} // Top x-axis.
         }
       },
-      bar: { groupWidth: "10%" }
+      bar: { groupWidth: "50%" }
     };
 
     var chart = new google.charts.Bar(document.getElementById('bar_chart_div'));

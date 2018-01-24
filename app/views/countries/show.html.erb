@@ -40,7 +40,7 @@
   </div>
 
 
-  <%= content_tag :div, id: "bar_chart_div",  style: "width: 950px; height: 400px", data: {resources: @country.resources.as_json(include: :element)} do %>
+  <%= content_tag :div, id: "bar_chart_div",  class: "chart", style: "width: 950px; height: 400px", data: {resources: @country.resources.as_json(include: :element)} do %>
   <% end %>
 
 </div>
