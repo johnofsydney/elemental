@@ -1,19 +1,24 @@
 <div class="overlay">
-
-  <div class="has-grid">
-    <h1>Countries</h1>
-
-    <div class="text-wrapper">
-
-      <% @countries.each do |c| %>
-        <div><%= link_to c.name, c %></div>
-
-      <% end %>
-
-    </div>
-  </div>
-
-
-
+  <h1>Countries</h1>
 
 </div>
+
+  <div class="overlay sixty">
+
+
+
+
+      <div class="text-wrapper">
+
+        <% @countries.each do |c| %>
+          <div><%= link_to c.name, c %></div>
+
+        <% end %>
+
+      </div>
+
+
+
+
+
+  </div>

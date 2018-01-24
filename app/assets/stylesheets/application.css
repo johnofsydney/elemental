@@ -22,10 +22,22 @@ body {
 div {
   /* border: red solid 2px; */
 }
+
+#intro {
+  background-color: rgba(148, 230, 245, 0.4);
+  border-radius: 1em;
+  margin-top: 2em;
+  padding: 1em;
+}
+
 #p-table {
   background-color: white;
 }
 
+.sixty {
+  width: 60%;
+  margin-top: 5em;
+}
 
 .navbar {
   margin-bottom: 0;
@@ -52,9 +64,9 @@ div {
 }
 
 
-.has-grid {
+/* .has-grid {
   width: 60%;
-}
+} */
 
 /* .overlay h1 {
   color: black;
