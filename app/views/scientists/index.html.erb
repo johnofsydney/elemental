@@ -11,8 +11,8 @@
         <% if s.photo.nil? %>
           <img class="thumb" src="http://res.cloudinary.com/dh6k0tlkb/image/upload/v1516666413/a6m6rvl33zc1czjar6gm.jpg" />
         <% end %>
-        <%= image_tag(s.photo, :class => 'thumb', :secure => true ) unless s.photo.nil? %>
-      <%= link_to s.name, s %>
+        <%= link_to image_tag(s.photo, :class => 'thumb', :secure => true ), s unless s.photo.nil? %>
+      <p><%= link_to s.name, s %></p>
       </div>
 
 

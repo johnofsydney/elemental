@@ -24,10 +24,12 @@ div {
 }
 
 #intro {
-  background-color: rgba(148, 230, 245, 0.4);
+  background-color: rgba(0, 195, 255, 0.4);
   border-radius: 1em;
   margin-top: 2em;
   padding: 1em;
+  /* border: black solid 1px; */
+  box-shadow: 2px 2px;
 }
 
 #p-table {
