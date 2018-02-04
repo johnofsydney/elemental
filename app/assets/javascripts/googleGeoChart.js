@@ -1,11 +1,6 @@
-console.log("geoChart Loaded");
 
 const doTheGeoChart = function (r) {
   console.log("***do the geoChart*****");
-  console.log(r);
-
-  console.log(r[0].country.name);
-  console.log(r[0].quantity);
 
   geoDataArray = [["Country", "Quantity"]]
   for (var i = 0; i < r.length; i++) {
@@ -15,8 +10,6 @@ const doTheGeoChart = function (r) {
   console.log(geoDataArray);
   google.charts.load('current', {
    'packages':['geochart'],
-   // Note: you will need to get a mapsApiKey for your project.
-   // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
    'mapsApiKey': 'AIzaSyB7nJABK2HEiQKo4V-FCEMWX5xag8vVJeA'
   });
   google.charts.setOnLoadCallback(drawRegionsMap);

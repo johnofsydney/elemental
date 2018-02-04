@@ -13,14 +13,10 @@
 }
 
 
-/* using animations from
-https://github.com/daneden/animate.css */
+
 
 body {
   font-family: 'Noto Sans', sans-serif;
-  /* background-image: url("../images/glassware.jpg");
-  background-size: cover;
-  background-repeat:no-repeat; */
 }
 
 h2 {
@@ -69,10 +65,8 @@ h2 {
 }
 
 .wrapper div:hover {
-  /* background-color: yellow; */
   opacity: 1;
   z-index: 2;
-
 }
 
 
@@ -108,10 +102,7 @@ h2 {
   background-color: orangered;
 }
 
-/* .info {
-  grid-column: 4 / 12;
-  grid-row: 2 / 4;
-} */
+
 
 .row-1 {
   grid-row: 1

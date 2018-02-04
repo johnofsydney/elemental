@@ -8,33 +8,11 @@
     <%= f.text_field :name, :class => 'form-control', :required => true   %>
   </div>
 
-  <!-- <div class="form-group">
-    <%= f.label :born %>
-    <%= f.text_field :born, :class => 'form-control'   %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :died %>
-    <%= f.text_field :died, :class => 'form-control'   %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :city %>
-    <%= f.text_field :city, :class => 'form-control'   %>
-  </div> -->
 
   <div class="form-group">
     <%= f.label :country_id %>
     <%= f.select :country_id, Country.pluck(:name, :id), :include_blank => true %>
   </div>
-
-
-
-
-  <!-- <div class="form-group">
-    <%= f.label :photo %>
-    <%= f.text_field :photo, :class => 'form-control'   %>
-  </div> -->
 
 
   <div class="form-group">

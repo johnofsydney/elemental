@@ -1,5 +1,7 @@
-console.log("THREE in sandbox");
 console.log(THREE);
+
+// This code is based on a code along during the GA course conducted by @threequal
+// I've addapted it to suit this application
 
 let cube = null;
 let sphere = null;
@@ -31,12 +33,11 @@ camera.position.y = 30;
 camera.position.z = 30;
 camera.lookAt(scene.position);
 
-// when we dadd new before the creation of a funxtion it does two things WRT "this":
+// when we add new before the creation of a function it does two things WRT "this":
 // It sets "this" to a new empty function
 // It automatically returns the keyword "this" (ie that empty object)
 const controller = new function () {
   this.rotationSpeed = 1;
-  // this.bouncingSpeed = 0.02;
 }
 
 const animate = () => {
@@ -50,8 +51,8 @@ const animate = () => {
 
 
   for (var i = 0; i < electrons.length; i++) {
-    a = 5 * ( 1 + i ) // amplitude increases per shell
-    orth = (i + 1) % 2
+    a = 5 * ( 1 + i )  // amplitude increases per shell
+    orth = (i + 1) % 2 // makes each shell rotated 90 degrees from the last in the z plane
 
     for (var j = 0; j < electrons[i].length; j++) {
       offset = (j / electrons[i].length) * 2 * Math.PI // spaces electrons evenly throughout circle
@@ -175,11 +176,7 @@ const addPlane = () => {
 
 const init = (e) => {
   renderer.setClearColor( 0xeceff1);
-  // renderer.setSize(500, 500)
   renderer.setSize(window.innerWidth / 2, window.innerHeight / 2)
-  // should be
-  //renderer.setSize(window.innerWidth, window.innerHeight)
-  // having fixed numbers here breasks the aspec ratio
 
   addAxes();
   addPlane();

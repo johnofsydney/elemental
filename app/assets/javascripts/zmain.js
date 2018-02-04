@@ -62,5 +62,3 @@ $(document).ready( function() {
 
 
 // https://stackoverflow.com/questions/18162197/rails-pass-data-to-javascript
-
-// doTheTimeline

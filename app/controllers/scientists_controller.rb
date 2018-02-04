@@ -59,25 +59,10 @@ class ScientistsController < ApplicationController
     redirect_to scientist
   end
 
-  # def update
-  #   job = Job.find params[:id]
-  #   # raise
-  #   if params["job"]["photo"].nil?
-  #   else
-  #     cloudinary = Cloudinary::Uploader.upload( params[ "job" ][ "photo" ] )
-  #     job.photo = cloudinary["url"]
-  #   end
-  #   job.update job_params
-  #   redirect_to job
-  # end
-
-
-
-
-
 
   private
   def scientist_params
     params.require(:scientist).permit(:name, :born, :died, :city, :country_id)
+    #  note that we don't have :photo listed as one of the required params
   end
 end

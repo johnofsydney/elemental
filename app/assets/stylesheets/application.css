@@ -22,6 +22,9 @@ body {
 div {
   /* border: red solid 2px; */
 }
+h1 {
+  margin-bottom: 2em;
+}
 
 .chart {
   margin-top: 2em;
@@ -59,10 +62,8 @@ div {
 }
 
 .overlay {
-  /* background-color: white;; */
   opacity: 1;
   position: absolute;
-  /* color: white; */
 }
 
 #scientist-index {
@@ -70,16 +71,7 @@ div {
 }
 
 
-/* .has-grid {
-  width: 60%;
-} */
-
-/* .overlay h1 {
-  color: black;
-  opacity: 1;
-} */
 .container {
-  /* background-color: yellow; */
   padding: 0;
   width:960px;
 }

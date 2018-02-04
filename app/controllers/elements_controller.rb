@@ -13,6 +13,9 @@ class ElementsController < ApplicationController
   end
 
   def show
+    # This is where we take advantage of the fact that wikipedia URLs are quite predicatable *though not 100% so*
+    # to scrape data using nokogiri, using the element name as our only variable.
+    # it's not perfecr but it allows some practice in scraping without getting bogged down in the detail.
     @element = Element.find_by :id => params[:id]
     require 'open-uri'
     @base_url = 'https://en.wikipedia.org/wiki/'

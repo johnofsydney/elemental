@@ -1,22 +1,10 @@
 
 const doTheBarChart = function (r) {
-  console.log(r);
-
-
-  console.log(r[0].element.name);
-  console.log(r[0].quantity);
 
   barDataArray = [["Element", "Quantity"]]
   for (var i = 0; i < r.length; i++) {
     barDataArray.push([r[i].element.name, r[i].quantity])
   }
-
-  console.log(barDataArray);
-
-
-
-
-
 
   google.charts.load('current', {'packages':['bar']});
   google.charts.setOnLoadCallback(drawStuff);
@@ -41,9 +29,5 @@ const doTheBarChart = function (r) {
     // Convert the Classic options to Material options.
     chart.draw(data, google.charts.Bar.convertOptions(options));
   };
-
-
-
-
 
 }

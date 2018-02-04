@@ -36,7 +36,6 @@
 The following scientists discovered and / or described <%= @element.name %>
 <ul>
 <% @element.scientists.each do |scientist| %>
-<!-- <% p = "/elements/#{@element.id}/remove/#{scientist.id}" %> -->
 <% p = "/elements/#{@element.id}/remove/scientist/#{scientist.id}" %>
 
 
